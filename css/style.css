@@ -1,0 +1,19 @@
+/**
+ * Some CSS here
+ */
+body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.428571429; color: #21272d; background-color: #ffffff; margin: 0; }
+img { width: 100%; height: auto; }
+.container { position:absolute; top: 25%; left: 40%; text-align: center ; margin-right: auto; margin-left: auto; }
+.title { font-size: 31px; font-weight: bolder; }
+.box { padding: 0; }
+.box + .box { padding: 10px 0; }
+.box__img { width: 150px; border-radius: 4px; box-shadow: 0 13px 28px -8px black; }
+.hr { border: none; height: 1px; position: relative; top: -8px; width: 60%; background-color: #e5e5e5; }
+.list { list-style-type: none; margin: 0; padding: 0; overflow: hidden; }
+.list__item { float: left; border-right: 1px solid #21272d; height: 20px; }
+.list__item.last { border-right: none; }
+.list__item .link { display: block; text-align: center; padding: 0 17px; }
+.link { text-decoration: none; color: #45688E; }
+.link:hover { cursor: pointer; color: #21272d; };
+.link:active { color: #45688E; };
+.link:visited { color: #45688E; };
