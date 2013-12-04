@@ -3,7 +3,7 @@
  */
 body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.428571429; color: #21272d; background-color: #ffffff; margin: 0; }
 img { width: 100%; height: auto; }
-.container { position:absolute; top: 25%; left: 40%; text-align: center ; margin-right: auto; margin-left: auto; }
+.container { position: absolute; top: 50%; left: 50%; text-align: center; margin-top: -183px; margin-left: -135px; }
 .title { font-size: 31px; font-weight: bolder; }
 .box { padding: 0; }
 .box + .box { padding: 10px 0; }
