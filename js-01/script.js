@@ -1,4 +1,0 @@
-/**
- * Start collect patterns.
- *
- */
