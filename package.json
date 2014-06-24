@@ -9,6 +9,8 @@
     "express": "^4.4.4",
     "wintersmith": "^2.0.10"
   },
-  "postinstall": "./node_modules/.bin/wintersmith build",
+  "scripts": {
+  	"postinstall": "./node_modules/.bin/wintersmith build"
+  },
   "repository": "none"
 }
