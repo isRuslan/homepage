@@ -1,7 +1,7 @@
 ---
 title: Первый пост
-author: the-wintersmith
-date: 2013-04-30
+author: isruslan
+date: 2014-06-30
 template: article.jade
 ---
 
