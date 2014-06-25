@@ -1,9 +1,9 @@
 {
   "locals": {
     "url": "http://localhost:8080",
-    "name": "isRuslan blog",
-    "owner": "isRuslan",
-    "description": "Blah blah placed here"
+    "name": "Руслан Исмагилов",
+    "owner": "Руслан Исмагилов",
+    "description": "Бла бла"
   },
   "plugins": [
     "./plugins/paginator.coffee"
