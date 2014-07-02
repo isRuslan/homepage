@@ -6,7 +6,7 @@
     "description": "Бла бла"
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/paginator-blog.coffee"
   ],
   "require": {
     "moment": "moment",
