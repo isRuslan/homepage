@@ -1,5 +1,5 @@
-{	
-	"engines": {
+{
+  "engines": {
     "node": "0.10.x"
   },
   "dependencies": {
@@ -7,10 +7,12 @@
     "underscore": "1.4.x",
     "typogr": "0.5.x",
     "express": "^4.4.4",
-    "wintersmith": "^2.0.10"
+    "wintersmith": "^2.0.10",
+    "wintersmith-less": "^0.2.3",
+    "wintersmith-coffee": "^0.2.1"
   },
   "scripts": {
-  	"postinstall": "./node_modules/.bin/wintersmith build"
+    "postinstall": "./node_modules/.bin/wintersmith build"
   },
   "repository": "none"
 }
