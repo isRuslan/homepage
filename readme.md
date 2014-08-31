@@ -1,4 +1,6 @@
+isruslan.github.io
+==================
 
-# Blog
+Ruslan Ismagilov [homepage](http://ruslan-ismagilov.ru)
 
-The default [wintersmith](https://github.com/jnordberg/wintersmith) template
+ 
