@@ -3,7 +3,7 @@ extends layout
 block content
   include author
   each article in articles
-    article.article.intro
+    if !article.metadata.link
       header
         p.date
           span= moment.utc(article.date).format('DD. MMMM YYYY')
@@ -14,7 +14,13 @@ block content
         if article.hasMore
           p.more
             a(href=article.url) далее
-
+    else
+      - console.log(article.metadata);
+      header
+        p.date
+          span= moment.utc(article.date).format('DD. MMMM YYYY')
+        h2
+          a(href=article.metadata.link)= article.title
 block prepend footer
   div.nav
     if prevPage
