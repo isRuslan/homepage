@@ -15,7 +15,6 @@ block content
           p.more
             a(href=article.url) далее
     else
-      - console.log(article.metadata);
       header
         p.date
           span= moment.utc(article.date).format('DD. MMMM YYYY')
