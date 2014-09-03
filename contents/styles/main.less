@@ -136,8 +136,8 @@ footer {
 
 footer .nav {
   text-align: center;
-  margin-top: 3em;
-  margin-bottom: 3.5em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
 }
 
 footer .nav a {
@@ -146,11 +146,23 @@ footer .nav a {
   text-decoration: none;
 }
 
-footer .about {
-  border-top: 1px dashed #d2d2d2;
-  padding: 2.2em 3em;
-  font-size: 0.7em;
-  text-align: center;
+footer {
+  .about {border-top: 1px dashed #d2d2d2;}
+  .about, .twitter, .instagram {
+    padding: 2.2em 3em;
+    font-size: 0.7em;
+    text-align: center;
+    span {
+      font-size: 1.7em;
+    }
+  }
+  .instagram {
+    a {width: 48%; padding: 5px; display: block; float: left;}
+    img {width: 100%; max-width: 100%;}
+    #load-more {
+      &:hover {cursor: pointer;}
+    }
+  }
 }
 
 footer .copy {

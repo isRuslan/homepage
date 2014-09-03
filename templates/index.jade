@@ -28,15 +28,15 @@ block prepend footer
       a(href='/archive.html') « Архив
     if nextPage
       a(href=nextPage.url) Следующая страница »
-  .twitter
+  section.twitter
     .twitter-wrapper
       a(class="twitter-timeline", href="https://twitter.com/is_ruslan", data-lang="ru", data-tweet-limit="1", data-chrome="nofooter" data-widget-id="506163152916975618") Твиты пользователя @is_ruslan
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-  .intagram
+  section.instagram
     span.title Инстаграм
     #instafeed
-    button(type="button")#load-more
+    span#load-more Еще
 
 
 
