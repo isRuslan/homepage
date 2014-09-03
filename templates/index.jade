@@ -20,6 +20,7 @@ block content
           span= moment.utc(article.date).format('DD. MMMM YYYY')
         h2
           a(href=article.metadata.link)= article.title
+          span.icon= article.metadata.icon
 block prepend footer
   div.nav
     if prevPage
