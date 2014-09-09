@@ -3,7 +3,7 @@
     "url": "http://localhost:8080",
     "name": "Руслан Исмагилов",
     "owner": "Руслан Исмагилов",
-    "description": "Бла бла"
+    "description": "Node.js & Browser Javascript"
   },
   "plugins": [
     "./plugins/paginator.coffee",
