@@ -10,9 +10,7 @@ block prepend title
 block header
   include author
   h1= page.title
-  p.author
-    | #{ "Автор " }
-    mixin author(page.metadata.author)
+  mixin author(page.metadata.author)
 
 block content
   article.article
