@@ -6,24 +6,21 @@ block vars
 block content
   include author
   each article in articles
-    if !article.metadata.link
-      header
-        p.date
-          span= moment.utc(article.date).format('DD. MMMM YYYY')
-        h2
-          a(href=article.url)= article.title
+    header
+      p.date
+        span= moment.utc(article.date).format('DD. MMMM YYYY')
+      h2
+        //- use link on other websites
+        //- use url for current blog
+        a(href=article.metadata.link || article.url)= article.title
+        if article.metadata.icon
+          span.icon= article.metadata.icon
+    unless article.metadata.link || article.metadata.no_intro
       section.content
         | !{ typogr(article.intro).typogrify() }
         if article.hasMore
           p.more
             a(href=article.url) далее
-    else
-      header
-        p.date
-          span= moment.utc(article.date).format('DD. MMMM YYYY')
-        h2
-          a(href=article.metadata.link)= article.title
-          span.icon= article.metadata.icon
 block prepend footer
   div.nav
     if prevPage
