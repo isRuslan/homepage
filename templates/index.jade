@@ -3,7 +3,9 @@ extends layout
 block vars
   - var bodyclass = 'index';
 
+
 block content
+  script(type='text/javascript' src='scripts/init.js')
   include author
   each article in articles
     header
