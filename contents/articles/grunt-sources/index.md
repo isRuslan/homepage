@@ -4,6 +4,7 @@ author: isruslan
 date: 2014-09-01 23:00
 template: article.jade
 icon: habrahabr
+lang: rus
 link: http://habrahabr.ru/post/230753/
 ---
 Статья на Хабре.

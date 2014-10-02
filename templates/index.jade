@@ -17,12 +17,12 @@ block content
         a(href=article.metadata.link || article.url)= article.title
         if article.metadata.icon
           span.icon= article.metadata.icon
-    unless article.metadata.link || article.metadata.no_intro
-      section.content
-        | !{ typogr(article.intro).typogrify() }
-        if article.hasMore
-          p.more
-            a(href=article.url) далее
+    //- unless article.metadata.link
+    //-   section.content
+    //-     | !{ typogr(article.intro).typogrify() }
+    //-     if article.hasMore
+    //-       p.more
+    //-         a(href=article.url) далее
 block prepend footer
   div.nav
     if prevPage

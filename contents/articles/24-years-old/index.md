@@ -3,7 +3,8 @@ title: На что тратить время 24-летним?
 author: null
 date: 2014-09-19
 icon: перевод
-no_intro: true
+need_intro: true
+lang: rus
 template: article.jade
 ---
 
