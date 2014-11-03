@@ -1,5 +1,5 @@
 ---
-title: Как устроен Webpack: смотрим исходники
+title: "Как устроен Webpack: смотрим исходники"
 date: 2012-13-10 15:00
 template: article.jade
 ---
