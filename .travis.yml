@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- '0.10'
+install: npm i
+after_success: ./update-gh-pages.sh
+env:
+  global:
+  - secure: NiGLzp5ULShSmHMpA18zvO8VfAW3MMSXBx84r/wTkVlJE4upK7eMdFWSbOlZ0IQyGGtcnIRhDwosJQyq39V2ROpwR2GGYKeh/6hTUWCSgGx3/uhXJTV7NbremeWJGyMvpZbbM6fY6LjUHnsANcNLX14zutYE1PVKdWSE4ZIme+A=
