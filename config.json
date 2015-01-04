@@ -3,7 +3,36 @@
     "url": "http://localhost:8080",
     "name": "Руслан Исмагилов",
     "owner": "Руслан Исмагилов",
-    "description": "Node.js & Browser Javascript"
+    "quotes": [
+      {
+        "text": "Technology is a word that describes something that doesn’t work yet.",
+        "author": "Douglas Adams"
+      },{
+        "text": "All this modern technology just makes people try to do everything at once.",
+        "author": "Bill Watterson"
+      },{
+        "text": "We are stuck with technology when what we really want is just stuff that works.",
+        "author": "Douglas Adams"
+      },{
+        "text": "Humanity is acquiring all the right technology for all the wrong reasons.",
+        "author": "R. Buckminster Fuller"
+      },{
+        "text": "It’s supposed to be automatic, but actually you have to push this button.",
+        "author": "John Brunner"
+      },{
+        "text": "It’s supposed to be automatic, but actually you have to push this button.",
+        "author": "John Brunner"
+      },{
+        "text": "The human spirit must prevail over technology.",
+        "author": "Albert Einstein"
+      },{
+        "text": "Computers are useless. They can only give you answers.",
+        "author": "Pablo Picasso"
+      }, {
+        "text": "This is why I loved technology: if you used it right, it could give you power and privacy.",
+        "author": "Cory Doctorow"
+      }
+    ]
   },
   "plugins": [
     "./plugins/paginator.coffee",
