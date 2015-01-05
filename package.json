@@ -12,7 +12,7 @@
     "wintersmith-coffee": "^0.2.1"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/wintersmith build",
+    "postinstall": "wintersmith build",
     "start": "make b && make p"
   },
   "repository": "none"
