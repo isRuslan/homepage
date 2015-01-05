@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 install: npm i
-after_success: ./update-gh-pages.sh
+after_success: ./deploy.sh
 env:
   global:
     secure: CDTxG7TPbm7sM/3r+Bd2HWGtSMEpq9mlTwtBTe0qyFyGJ46oWeMJhT5zH6BzH+ifwbM9Y/Hl64rKcKdyKUBL71MCH3RNqLO8bDG2s2FJEkaI9dlLPjKsjbUDb2R7L5laAv0jzxuRkdWOvy1qkt9g/Jd4DgD73w7kLO4IVkbKOV8=
