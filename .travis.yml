@@ -5,7 +5,13 @@ install: npm i
 env:
   global:
     secure: CDTxG7TPbm7sM/3r+Bd2HWGtSMEpq9mlTwtBTe0qyFyGJ46oWeMJhT5zH6BzH+ifwbM9Y/Hl64rKcKdyKUBL71MCH3RNqLO8bDG2s2FJEkaI9dlLPjKsjbUDb2R7L5laAv0jzxuRkdWOvy1qkt9g/Jd4DgD73w7kLO4IVkbKOV8=
-# whitelist
 branches:
   only:
-    - master
+  - master
+deploy:
+  provider: heroku
+  api_key:
+    secure: CNjndRTkfQdcpyr3F+FlaJIqB+3mzsKdRwIziGX8GT0UMqdFkwUmQHQHlYyZ09rPBVSla3xiigZwR0wvRtd0SpqzOPUwUuNmqwhQYBL5ZnIPe4pdWDrBrZe+07P3i6SOdi6qtxlDDB37mn4AV5o741LCj3vV+cVVHIsGT52lPDM=
+  app: isruslan
+  on:
+    repo: isRuslan/homepage
