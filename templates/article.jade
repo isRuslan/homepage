@@ -4,6 +4,14 @@ extends layout
 block append vars
   - bodyclass = 'article-detail'
 
+block page-meta
+  meta(property="twitter:title" content=page.title)
+  meta(property="og:title" content=page.title)
+  meta(property="twitter:description" content=page.metadata.description)
+  meta(name="description" content=page.metadata.description)
+  meta(name="keywords" content=page.metadata.keywords)
+
+
 block prepend title
   | #{ page.title + " - "}
 
