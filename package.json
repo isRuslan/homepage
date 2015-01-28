@@ -4,7 +4,6 @@
   },
   "dependencies": {
     "emojify.js": "^0.9.5",
-    "evil-icons": "^1.5.0",
     "express": "^4.4.4",
     "moment": "2.3.x",
     "typogr": "0.5.x",

@@ -2,7 +2,7 @@
 view: none
 ---
 
-[][1] | [GitHub][2] | [NPM][3] | [VK][4] | [FB][5] | [G+][6] | [CV][7] | [Email][8]
+[Twitter][1] | [GitHub][2] | [NPM][3] | [VK][4] | [FB][5] | [G+][6] | [CV][7] | [Email][8]
 
 
 [1]: https://twitter.com/is_ruslan
