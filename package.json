@@ -3,7 +3,6 @@
     "node": "0.10.x"
   },
   "dependencies": {
-    "emojify.js": "^0.9.5",
     "express": "^4.4.4",
     "moment": "2.3.x",
     "typogr": "0.5.x",

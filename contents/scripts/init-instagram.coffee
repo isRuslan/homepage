@@ -6,9 +6,7 @@ setTimeout ( ->
     userId: 522307946
     accessToken: '522307946.467ede5.101cf0f1132f4e868b24b048ca3abbfc'
     clientId: '7c97ccb1c4ca488f891827d57e2fd1fe'
-    template: '<a href="{{link}}"><img src="{{image}}" title="View on Instagram" />
-                 <span>{{caption}}</span>
-               </a>'
+    template: '<a href="{{link}}" target="_blank"><img src="{{image}}" title="View on Instagram" /></a>'
     limit: 2
     resolution: 'standard_resolution'
     after: ->
