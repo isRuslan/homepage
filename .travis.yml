@@ -11,3 +11,6 @@ env:
 branches:
   only:
   - main
+cache:
+  directories:
+  - node_modules
