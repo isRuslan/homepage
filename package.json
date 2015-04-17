@@ -12,7 +12,7 @@
     "wintersmith-less": "^0.2.3"
   },
   "scripts": {
-    "postinstall": "wintersmith build",
+    "postinstall": "make b",
     "start": "make b && make p"
   },
   "repository": "none"
