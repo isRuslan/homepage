@@ -1,10 +1,13 @@
 language: node_js
 node_js:
 - '0.10'
-install: npm i
+before_install:
+- npm install
+install: bash ./deploy.sh
 env:
   global:
-    secure: CDTxG7TPbm7sM/3r+Bd2HWGtSMEpq9mlTwtBTe0qyFyGJ46oWeMJhT5zH6BzH+ifwbM9Y/Hl64rKcKdyKUBL71MCH3RNqLO8bDG2s2FJEkaI9dlLPjKsjbUDb2R7L5laAv0jzxuRkdWOvy1qkt9g/Jd4DgD73w7kLO4IVkbKOV8=
+  - GH_REF: github.com/isRuslan/isruslan.github.io.git
+  - secure: csbbIx6n8aYm2Y1N/a2i5K2jWYS9SM0u3AiCRdu2NOOXb6TyuapUxEaemywdOQ6FTzPBgGvb1px+VjEFJgpD2p/ZHlrpedBoAVCvQEA7NZgqmt9lfA7XZJF+g8JZbW/POmJPkHYHcu0XYQEEVidfcH95fs3i+OVo6NXtLwl+MDQ=
 branches:
   only:
   - master
