@@ -1,8 +1,8 @@
-isRuslan [![Build Status](https://travis-ci.org/isRuslan/homepage.svg?branch=master)](https://travis-ci.org/isRuslan/homepage)
+isRuslan [![Build Status](https://travis-ci.org/isRuslan/isruslan.github.io.svg?branch=master)](https://travis-ci.org/isRuslan/homepage)
 ==================
 
-My [homepage](http://ruslan-ismagilov.ru) 
+All information in one place: [my homepage](https://isruslan.github.io).
 
-Used:
+This project is havily using [wintersmith](https://github.com/jnordberg/wintersmith):
 
 [![Wintersmith](http://wintersmith.io/images/wintersmith.svg)](https://github.com/jnordberg/wintersmith)
