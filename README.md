@@ -1,4 +1,4 @@
-isRuslan [![Build Status](https://travis-ci.org/isRuslan/isruslan.github.io.svg?branch=master)](https://travis-ci.org/isRuslan/homepage)
+isRuslan [![Build Status](https://travis-ci.org/isRuslan/isruslan.github.io.svg?branch=main)](https://travis-ci.org/isRuslan/homepage)
 ==================
 
 All information in one place: [my homepage](https://isruslan.github.io).
