@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- npm install
+install: bash ./deploy.sh
+env:
+  global:
+  - GH_REF: github.com/isRuslan/isruslan.github.io.git
+  - secure: csbbIx6n8aYm2Y1N/a2i5K2jWYS9SM0u3AiCRdu2NOOXb6TyuapUxEaemywdOQ6FTzPBgGvb1px+VjEFJgpD2p/ZHlrpedBoAVCvQEA7NZgqmt9lfA7XZJF+g8JZbW/POmJPkHYHcu0XYQEEVidfcH95fs3i+OVo6NXtLwl+MDQ=
+branches:
+  only:
+  - main
+cache:
+  directories:
+  - node_modules

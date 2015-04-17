@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<de></de>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Ruslan Ismagilov">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="img/avatar.jpg">
+    <meta property="twitter:title" content="Как устроен Webpack: смотрим исходники">
+    <meta property="og:title" content="Как устроен Webpack: смотрим исходники">
+    <meta property="twitter:description">
+    <meta name="description">
+    <meta name="keywords">
+    <title>Как устроен Webpack: смотрим исходники - Ruslan Ismagilov
+    </title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="alternate" href="http://isruslan.tk/feed.xml" type="application/rss+xml">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?subset=cyrillic&amp;family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="text/javascript" src="/scripts/instafeed.js"></script>
+    <script type="text/javascript" src="/scripts/init.js"></script>
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Как устроен Webpack: смотрим исходники</h1>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p><a href="http://webpack.github.io/assets/logo.png"></a></p>
+<p><a href="http://webpack.github.io/docs/">Webpack</a> - это, стремительно набирающий популярность, сборщик модулей. Он прост в обращении, предоставляет большие возможности для организации кода, объединяет уже существующие подходы модулирования приложений и дополняет их. В статье мы не будем аргументировать зачем и когда использовать webpack, подразумевается, что читатель уже знаком с проектом и надобности мотивировать его нет. Мы же попытаемся заглянуть внутрь и понять как это работает с помощью разбора примеров из&nbsp;документации.</p>
+<p>========&nbsp;кат</p>
+<h2 id="getting-started">Getting&nbsp;Started</h2>
+<p>Проект оформлен в виде <a href="https://github.com/webpack/">организации</a> на&nbsp;гитхабе:</p>
+<ul>
+<li>основной проект <a href="https://github.com/webpack/webpack">https://github.com/webpack/webpack</a></li>
+<li><a href="http://webpack.github.io/docs/loaders.html">загрузчики</a> - например <a href="https://github.com/webpack/jade-loader">https://github.com/webpack/jade-loader</a></li>
+<li><a href="http://webpack.github.io/docs/plugins.html">плагины</a> - например <a href="https://github.com/webpack/component-webpack-plugin">https://github.com/webpack/component-webpack-plugin</a></li>
+<li>лендинг <a href="https://github.com/webpack/webpack.github.com">https://github.com/webpack/webpack.github.com</a></li>
+<li>документация <a href="https://github.com/webpack/docs">https://github.com/webpack/docs</a></li>
+<li>…</li>
+</ul>
+<h2 id="core">Core</h2>
+<p>Структура&nbsp;проекта:</p>
+<pre><code class="lang-sh">    ├── LICENSE
+    ├── README.md
+    ├── appveyor.yml
+    ├── bin
+    │   ├── config-optimist.js
+    │   ├── convert-argv.js
+    │   └── webpack.js
+    ├── bm.js
+    ├── buildin
+    │   ├── amd-define.js
+    │   ├── amd-options.js
+    │   ├── module.js
+    │   └── return-require.js
+    ├── examples
+    │   ├ ... # примеры 38 папок, 224 файла
+    ├── hot
+    │   ├── dev-server.js
+    │   ├── only-dev-server.js
+    │   └── poll.js
+    ├── lib
+    │   ├── APIPlugin.js
+    │   ├── AbstractPlugin.js
+    │   ├── AmdMainTemplatePlugin.js
+    │   ├── ArrayMap.js
+    │   ├── AsyncDependenciesBlock.js
+    │   ├── BannerPlugin.js
+    │   ├── BasicEvaluatedExpression.js
+    │   ├── CachePlugin.js
+    │   ├── CaseSensitiveModulesWarning.js
+    │   ├── Chunk.js
+    │   ├── ChunkTemplate.js
+    │   ├── CompatibilityPlugin.js
+    │   ├── Compilation.js
+    │   ├── Compiler.js
+    │   ├── ConcatSource.js
+    │   ├── ConstPlugin.js
+    │   ├── ContextModule.js
+    │   ├── ContextModuleFactory.js
+    │   ├── ContextReplacementPlugin.js
+    │   ├── CriticalDependenciesWarning.js
+    │   ├── DefinePlugin.js
+    │   ├── DependenciesBlock.js
+    │   ├── DependenciesBlockVariable.js
+    │   ├── Dependency.js
+    │   ├── EntryModuleNotFoundError.js
+    │   ├── EvalDevToolModulePlugin.js
+    │   ├── EvalDevToolModuleTemplatePlugin.js
+    │   ├── EvalSourceMapDevToolModuleTemplatePlugin.js
+    │   ├── EvalSourceMapDevToolPlugin.js
+    │   ├── ExtendedAPIPlugin.js
+    │   ├── ExternalModule.js
+    │   ├── ExternalModuleFactoryDecorator.js
+    │   ├── ExternalsPlugin.js
+    │   ├── FunctionModulePlugin.js
+    │   ├── FunctionModuleTemplatePlugin.js
+    │   ├── HotModuleReplacementPlugin.js
+    │   ├── HotUpdateChunkTemplate.js
+    │   ├── IgnorePlugin.js
+    │   ├── JsonpChunkTemplatePlugin.js
+    │   ├── JsonpExportMainTemplatePlugin.js
+    │   ├── JsonpHotUpdateChunkTemplatePlugin.js
+    │   ├── JsonpMainTemplatePlugin.js
+    │   ├── JsonpTemplatePlugin.js
+    │   ├── LibraryTemplatePlugin.js
+    │   ├── LoaderTargetPlugin.js
+    │   ├── MainTemplate.js
+    │   ├── MemoryOutputFileSystem.js
+    │   ├── Module.js
+    │   ├── ModuleFilenameHelpers.js
+    │   ├── ModuleNotFoundError.js
+    │   ├── ModuleParseError.js
+    │   ├── ModuleParserHelpers.js
+    │   ├── ModuleReason.js
+    │   ├── ModuleTemplate.js
+    │   ├── MovedToPluginWarningPlugin.js
+    │   ├── MultiCompiler.js
+    │   ├── MultiEntryPlugin.js
+    │   ├── MultiModule.js
+    │   ├── MultiModuleFactory.js
+    │   ├── NewWatchingPlugin.js
+    │   ├── NoErrorsPlugin.js
+    │   ├── NodeStuffPlugin.js
+    │   ├── NormalModule.js
+    │   ├── NormalModuleFactory.js
+    │   ├── NormalModuleReplacementPlugin.js
+    │   ├── NullFactory.js
+    │   ├── OptionsApply.js
+    │   ├── OriginalSource.js
+    │   ├── Parser.js
+    │   ├── PrefetchPlugin.js
+    │   ├── ProgressPlugin.js
+    │   ├── ProvidePlugin.js
+    │   ├── RawModule.js
+    │   ├── RawSource.js
+    │   ├── RecordIdsPlugin.js
+    │   ├── RequestShortener.js
+    │   ├── RequireJsStuffPlugin.js
+    │   ├── ResolverPlugin.js
+    │   ├── SetVarMainTemplatePlugin.js
+    │   ├── SingleEntryPlugin.js
+    │   ├── Source.js
+    │   ├── SourceMapDevToolPlugin.js
+    │   ├── SourceMapSource.js
+    │   ├── Stats.js
+    │   ├── Template.js
+    │   ├── TemplatedPathPlugin.js
+    │   ├── UmdMainTemplatePlugin.js
+    │   ├── UnsupportedFeatureWarning.js
+    │   ├── WarnCaseSensitiveModulesPlugin.js
+    │   ├── WebpackOptionsApply.js
+    │   ├── WebpackOptionsDefaulter.js
+    │   ├── dependencies
+    │   │   ├── AMDDefineDependency.js
+    │   │   ├── AMDDefineDependencyParserPlugin.js
+    │   │   ├── AMDPlugin.js
+    │   │   ├── AMDRequireArrayDependency.js
+    │   │   ├── AMDRequireContextDependency.js
+    │   │   ├── AMDRequireDependenciesBlock.js
+    │   │   ├── AMDRequireDependenciesBlockParserPlugin.js
+    │   │   ├── AMDRequireDependency.js
+    │   │   ├── AMDRequireItemDependency.js
+    │   │   ├── CommonJsPlugin.js
+    │   │   ├── CommonJsRequireContextDependency.js
+    │   │   ├── CommonJsRequireDependency.js
+    │   │   ├── CommonJsRequireDependencyParserPlugin.js
+    │   │   ├── ConstDependency.js
+    │   │   ├── ContextDependency.js
+    │   │   ├── ContextDependencyHelpers.js
+    │   │   ├── ContextDependencyTemplateAsId.js
+    │   │   ├── ContextDependencyTemplateAsRequireCall.js
+    │   │   ├── ContextElementDependency.js
+    │   │   ├── LabeledExportsDependency.js
+    │   │   ├── LabeledModuleDependency.js
+    │   │   ├── LabeledModuleDependencyParserPlugin.js
+    │   │   ├── LabeledModulesPlugin.js
+    │   │   ├── LoaderDependency.js
+    │   │   ├── LoaderPlugin.js
+    │   │   ├── LocalModule.js
+    │   │   ├── LocalModuleDependency.js
+    │   │   ├── LocalModulesHelpers.js
+    │   │   ├── ModuleDependency.js
+    │   │   ├── ModuleDependencyTemplateAsId.js
+    │   │   ├── ModuleDependencyTemplateAsRequireId.js
+    │   │   ├── ModuleHotAcceptDependency.js
+    │   │   ├── ModuleHotDeclineDependency.js
+    │   │   ├── MultiEntryDependency.js
+    │   │   ├── NullDependency.js
+    │   │   ├── NullDependencyTemplate.js
+    │   │   ├── PrefetchDependency.js
+    │   │   ├── RequireContextDependency.js
+    │   │   ├── RequireContextDependencyParserPlugin.js
+    │   │   ├── RequireContextPlugin.js
+    │   │   ├── RequireEnsureDependenciesBlock.js
+    │   │   ├── RequireEnsureDependenciesBlockParserPlugin.js
+    │   │   ├── RequireEnsureDependency.js
+    │   │   ├── RequireEnsureItemDependency.js
+    │   │   ├── RequireEnsurePlugin.js
+    │   │   ├── RequireHeaderDependency.js
+    │   │   ├── RequireIncludeDependency.js
+    │   │   ├── RequireIncludeDependencyParserPlugin.js
+    │   │   ├── RequireIncludePlugin.js
+    │   │   ├── RequireResolveContextDependency.js
+    │   │   ├── RequireResolveDependency.js
+    │   │   ├── RequireResolveDependencyParserPlugin.js
+    │   │   ├── RequireResolveHeaderDependency.js
+    │   │   ├── SingleEntryDependency.js
+    │   │   ├── TemplateArgumentDependency.js
+    │   │   ├── WebpackMissingModule.js
+    │   │   └── getFunctionExpression.js
+    │   ├── node
+    │   │   ├── NodeChunkTemplatePlugin.js
+    │   │   ├── NodeEnvironmentPlugin.js
+    │   │   ├── NodeHotUpdateChunkTemplatePlugin.js
+    │   │   ├── NodeMainTemplatePlugin.js
+    │   │   ├── NodeOutputFileSystem.js
+    │   │   ├── NodeSourcePlugin.js
+    │   │   ├── NodeTargetPlugin.js
+    │   │   ├── NodeTemplatePlugin.js
+    │   │   └── NodeWatchFileSystem.js
+    │   ├── optimize
+    │   │   ├── AggressiveMergingPlugin.js
+    │   │   ├── CommonsChunkPlugin.js
+    │   │   ├── DedupePlugin.js
+    │   │   ├── FlagIncludedChunksPlugin.js
+    │   │   ├── LimitChunkCountPlugin.js
+    │   │   ├── MergeDuplicateChunksPlugin.js
+    │   │   ├── MinChunkSizePlugin.js
+    │   │   ├── OccurenceOrderPlugin.js
+    │   │   ├── OccurrenceOrderPlugin.js
+    │   │   ├── RemoveEmptyChunksPlugin.js
+    │   │   ├── RemoveParentModulesPlugin.js
+    │   │   └── UglifyJsPlugin.js
+    │   ├── removeAndDo.js
+    │   ├── web
+    │   │   └── WebEnvironmentPlugin.js
+    │   ├── webpack.js
+    │   ├── webpack.web.js
+    │   └── webworker
+    │       ├── WebWorkerChunkTemplatePlugin.js
+    │       ├── WebWorkerMainTemplatePlugin.js
+    │       └── WebWorkerTemplatePlugin.js
+    ├── package.json
+    ├── test
+    │   ├ ... # тесты 165 папок, 349 файлов
+    └── web_modules
+        └── node-libs-browser.js
+    # Итого 215 папок, 765 файлов
+</code></pre>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« Назад</a></div>
+        <div class="share_container"><span displayText="Tweet" class="st_twitter_hcount"></span><span displayText="Facebook" class="st_facebook_hcount"></span><span displayText="Vkontakte" class="st_vkontakte_hcount"></span><span displayText="Google +" class="st_googleplus_hcount"></span></div>
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js">
+          <script>
+            stLight.options({
+              publisher: "b6795319-0a18-4703-b5ce-6fa4ef6b0514",
+              doNotHash: false, doNotCopy: false, hashAddressBar: false});
+          </script>
+        </script>
+        <div id="disqus_thread">
+          <script>
+            var disqus_shortname = 'isruslan';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+        </div>
+        <section class="about"><p><a href="https://twitter.com/is_ruslan">Twitter</a> | <a href="https://github.com/isRuslan">GitHub</a> | <a href="https://www.npmjs.org/~is_ruslan">NPM</a> | <a href="http://vk.com/ruslan_ismagilov">VK</a> | <a href="https://www.facebook.com/ismagilovvv">FB</a> | <a href="https://plus.google.com/116989824441755587442">G+</a> | <a href="http://brainstorage.me/herr">CV</a> | <a href="mailto:is.ismagilov@gmail.com">Email</a></p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2015 Ruslan Ismagilov &mdash; used&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a></p>
+        </section>
+      </div>
+    </footer>
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-55044628-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>
